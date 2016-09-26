@@ -1,5 +1,5 @@
-# code-snippets
-This repository contains individual scripts/programs for various tasks.
+# web crawler
+This repository contains program to fetch urls from a url.
 
 ## setup
 
@@ -19,6 +19,10 @@ This repository contains individual scripts/programs for various tasks.
 
 ## python version
     Python 3.5.2
+
+## Asumption
+
+    Stop the program after retrieving 100 links.
 
 ## web_crawler.py
 

@@ -76,10 +76,14 @@ def main():
             retrieved_links.extend(links)
             crawled_links.append(link)
         else:
-            print("We have crawled enough links!!")
-            print("Exiting program!!")
-            print("Crawled urls: {}".format(crawled_links))
-            print("Retrieved links :{}".format(retrieved_links))
+            print("-------------------We have crawled enough links!!----------------")
+            print("-------------------Exiting program!!----------------------")
+            print("====================Crawled urls=====================")
+            print(crawled_links)
+            print("====================Retrieved links==============================")
+            print(retrieved_links)
+
+            break
 
 if __name__ == "__main__":
     main()
