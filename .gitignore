@@ -1,0 +1,7 @@
+# Python
+*.pot
+*.pyc
+__pycache__/
+.coverage
+.py~
+.py.*
