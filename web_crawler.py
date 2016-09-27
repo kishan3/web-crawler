@@ -1,12 +1,4 @@
-"""
-This module is basic web crawler built for shoppig.com site.
-
-Two queries can be performed using this program.
-The first query is getting the  total number of results for a given keyword.
-The second query is to find all results  for a given keywords on a specified
-page.
-
-"""
+"""This module is basic web crawler."""
 import sys
 import re
 from bs4 import BeautifulSoup
