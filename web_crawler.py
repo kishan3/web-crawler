@@ -13,16 +13,13 @@ from bs4 import BeautifulSoup
 import urllib
 import urllib.request
 from urllib.parse import urlparse
-from urllib.parse import urlsplit
+
 
 pattern = re.compile("^https?://")
 
 
 def make_url_proper(url):
-    """Method reformats url given and makes it appropriate.
-
-    Then it can be be called by urllib.
-    """
+    """Method reformats url given and makes it appropriate."""
     www_match = re.match(pattern, url)
     if not www_match:
         url = "http://" + url
@@ -36,7 +33,7 @@ def get_html_page(url):
     try:
         html = urllib.request.urlopen(url).read()
     except urllib.error.URLError:
-        print("Your net seems to down or site is down.Please try again.")
+        print("Your net seems to be down or site is down.Please try again.")
         sys.exit()
     return html
 
@@ -55,20 +52,14 @@ def main():
     """
     Main method from where the execution starts.
 
-    Here we check for number of arguments if it is 0 or more than 2 then
-    we raise error and exit.
-    After that depending on number of arguments we call different methods.
-    If arguments is 1 we call scrape_a_page() method.
-    If arguments are 2 we call scrape_all_pages() method.
+    Here we ask for seed url to begin with.
+    - check if it is proper url or not.
+    - If not http prepand it to url.
+    - call craw_a_page() method.
     """
-    number_or_args = len(sys.argv[1:])
-    if number_or_args > 1 or number_or_args == 0:
-        print("Usage: python web_crawler.py <arg1>")
-        print("Note: <arg1> is name of the url from where crawling will start.")
-        sys.exit(1)
-    url = sys.argv[1]
-    url = make_url_proper(url)
-    retrieved_links = [url]
+    seed_url = input("Enter a seed page to begin with: ")
+    seed_url = make_url_proper(seed_url)
+    retrieved_links = [seed_url]
     crawled_links = []
     for link in retrieved_links:
         if len(retrieved_links) < 100:
@@ -77,7 +68,7 @@ def main():
             retrieved_links.extend(links)
             crawled_links.append(link)
         else:
-            print("-------------------We have crawled enough links!!----------------")
+            print("-------------------We have crawled enough links!!---------------")
             print("-------------------Exiting program!!----------------------")
             print("====================Crawled urls=====================")
             print(crawled_links)
