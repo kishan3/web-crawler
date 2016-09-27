@@ -37,6 +37,7 @@ def get_html_page(url):
         html = urllib.request.urlopen(url).read()
     except urllib.error.URLError:
         print("Your net seems to down or site is down.Please try again.")
+        sys.exit()
     return html
 
 
